@@ -24,7 +24,7 @@ class MY_Model extends CI_Model
 
     /* Getting the records in brands */
     public function get_brands() {
-        $this->db->select('id, rank, title, isActive');
+        $this->db->select('id, rank, title, isOnMain, isActive');
         $query = $this->db->get('brands');
         return $query->result();
     }

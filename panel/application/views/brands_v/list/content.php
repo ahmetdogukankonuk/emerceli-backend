@@ -18,6 +18,7 @@
                                             <th scope="col"></th>
                                             <th scope="col">ID</th>
                                             <th scope="col"> <?php echo $this->lang->line('title'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('on-homepage'); ?> </th>
                                             <th scope="col"> <?php echo $this->lang->line('situation'); ?> </th>
                                             <th scope="col"> <?php echo $this->lang->line('action'); ?> </th>
                                         </tr>
@@ -29,6 +30,17 @@
                                                 <td class="sortable"><i class="bi bi-list fs-5"></i></td>
                                                 <td> <?php echo $item->id; ?> </td>
                                                 <td> <?php echo $item->title; ?> </td>
+                                                <td>
+                                                    <div class="form-check form-switch d-flex justify-content-center">
+                                                        <input 
+                                                            data-url="<?php echo base_url("brands/isOnMainSetter/$item->id"); ?>"
+                                                            class="situationSetter form-check-input fs-4" 
+                                                            type="checkbox" role="switch" id="isOnMain" 
+                                                            dataID="<?php echo $item->id; ?>"
+                                                            <?php echo ($item->isOnMain == 1) ? "checked" : ""; ?>
+                                                        />
+                                                    </div>
+                                                </td>
                                                 <td>
                                                     <div class="form-check form-switch d-flex justify-content-center">
                                                         <input 
@@ -59,6 +71,7 @@
                                             <th scope="col"></th>
                                             <th scope="col">ID</th>
                                             <th scope="col"> <?php echo $this->lang->line('title'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('on-homepage'); ?> </th>
                                             <th scope="col"> <?php echo $this->lang->line('situation'); ?> </th>
                                             <th scope="col"> <?php echo $this->lang->line('action'); ?> </th>
                                         </tr>

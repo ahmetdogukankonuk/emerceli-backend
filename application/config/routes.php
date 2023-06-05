@@ -54,16 +54,10 @@ $route['default_controller']                = 'home';
 $route['404_override']                      = 'home/errorx';
 $route['translate_uri_dashes']              = FALSE;
 
-$route["videolar"]                          = "home/videos";
+$route["category/(:any)"]                   = "home/product_list_by_category/$1";
+$route["brands/(:any)"]                     = "home/product_list_by_brand/$1";
+$route["products"]                          = "home/product_list";
+$route["product-detail/(:any)"]             = "home/product_detail/$1";
 
-$route["urunler"]                           = "home/product_list";
-$route["urun-detay/(:any)"]                 = "home/product_detail/$1";
-
-$route["ozel-uretim-urunler"]               = "home/special_product_list";
-$route["ozel-uretim-urunler-detay/(:any)"]  = "home/special_product_detail/$1";
-
-$route["videolar"]                          = "home/video_list";
-$route["video-detay/(:any)"]                = "home/video_detail/$1";
-
-$route["hakkimizda"]                        = "home/about";
-$route["iletisim"]                          = "home/contact";
+$route["about"]                             = "home/about";
+$route["contact"]                           = "home/contact";

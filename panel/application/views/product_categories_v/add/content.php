@@ -42,14 +42,14 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="description" class="form-label text-color"><?php echo $this->lang->line('description'); ?> (<?php echo $this->lang->line('english'); ?>)</label>
-                                                <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="<?php echo $this->lang->line('description'); ?> (<?php echo $this->lang->line('english'); ?>)"></textarea>
+                                                <label for="title_ar" class="form-label text-color"><?php echo $this->lang->line('title'); ?> (<?php echo $this->lang->line('arabian'); ?>)</label>
+                                                <input type="text" class="form-control" name="title_ar" id="title_ar" placeholder="<?php echo $this->lang->line('title'); ?> (<?php echo $this->lang->line('arabian'); ?>)">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="description_tr" class="form-label text-color"><?php echo $this->lang->line('description'); ?> (<?php echo $this->lang->line('turkish'); ?>)</label>
-                                                <textarea class="form-control" name="description_tr" id="description_tr" cols="30" rows="10" placeholder="<?php echo $this->lang->line('description'); ?> (<?php echo $this->lang->line('turkish'); ?>)"></textarea>
+                                                <label for="title_ru" class="form-label text-color"><?php echo $this->lang->line('title'); ?> (<?php echo $this->lang->line('russian'); ?>)</label>
+                                                <input type="text" class="form-control" name="title_ru" id="title_ru" placeholder="<?php echo $this->lang->line('title'); ?> (<?php echo $this->lang->line('russian'); ?>)">
                                             </div>
                                         </div>
                                     </div>
@@ -57,22 +57,30 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="description_fr" class="form-label text-color"><?php echo $this->lang->line('description'); ?> (<?php echo $this->lang->line('french'); ?>)</label>
-                                                <textarea class="form-control" name="description_fr" id="description_fr" cols="30" rows="10" placeholder="<?php echo $this->lang->line('description'); ?> (<?php echo $this->lang->line('french'); ?>)"></textarea>
+                                                <label for="title_de" class="form-label text-color"><?php echo $this->lang->line('title'); ?> (<?php echo $this->lang->line('german'); ?>)</label>
+                                                <input type="text" class="form-control" name="title_de" id="title_de" placeholder="<?php echo $this->lang->line('title'); ?> (<?php echo $this->lang->line('german'); ?>)">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="description_es" class="form-label text-color"><?php echo $this->lang->line('description'); ?> (<?php echo $this->lang->line('spanish'); ?>)</label>
-                                                <textarea class="form-control" name="description_es" id="description_es" cols="30" rows="10" placeholder="<?php echo $this->lang->line('description'); ?> (<?php echo $this->lang->line('spanish'); ?>)"></textarea>
+                                                <label for="title_pt" class="form-label text-color"><?php echo $this->lang->line('title'); ?> (<?php echo $this->lang->line('portuguese'); ?>)</label>
+                                                <input type="text" class="form-control" name="title_pt" id="title_pt" placeholder="<?php echo $this->lang->line('title'); ?> (<?php echo $this->lang->line('portuguese'); ?>)">
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="mb-3">
-                                            <label for="imgUrl" class="form-label"><?php echo $this->lang->line('select-an-image'); ?></label>
-                                            <input class="form-control" type="file" name="imgUrl" id="imgUrl">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="title_fa" class="form-label text-color"><?php echo $this->lang->line('title'); ?> (<?php echo $this->lang->line('persian'); ?>)</label>
+                                                <input type="text" class="form-control" name="title_fa" id="title_fa" placeholder="<?php echo $this->lang->line('title'); ?> (<?php echo $this->lang->line('persian'); ?>)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="title_ch" class="form-label text-color"><?php echo $this->lang->line('title'); ?> (<?php echo $this->lang->line('chinese'); ?>)</label>
+                                                <input type="text" class="form-control" name="title_ch" id="title_ch" placeholder="<?php echo $this->lang->line('title'); ?> (<?php echo $this->lang->line('chinese'); ?>)">
+                                            </div>
                                         </div>
                                     </div>
                                     

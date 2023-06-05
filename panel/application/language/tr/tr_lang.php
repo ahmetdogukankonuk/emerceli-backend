@@ -9,6 +9,7 @@ $lang['spanish'] = "İspanyolca";
 $lang['german'] = "Almanca";
 $lang['persian'] = "Farsça";
 $lang['portuguese'] = "Portekizce";
+$lang['chinese'] = "Çince";
 
 $lang['dashboard'] = "Panel";
 $lang['products'] = "Ürünler";
@@ -199,8 +200,13 @@ $lang['please-select-an-image'] = "Lütfen bir resim seçin";
 $lang['password-changed-text'] = "Parola başarıyla değiştirildi";
 $lang['password-could-not-changed-text'] = "Parola değiştirilirken bir sorun oluştu";
 
+
 $lang['on-catalog'] = "Katalogda";
 $lang['product-price'] = "Ürün Fiyatı";
 $lang['special-products'] = "Özel Üretim Ürünler";
+
+$lang['references'] = "References";
+$lang['all-references'] = "All References";
+$lang['new-reference'] = "New References";
 
 ?>

@@ -46,7 +46,7 @@ function get_product_cover_image($product_id){
 
     }
 
-    return !empty($cover_image) ? $cover_image->imgUrl : "";
+    return !empty($cover_image) ? $cover_image->imgUrl : "default.webp";
 
 }
 
@@ -279,40 +279,40 @@ function get_user_name($user_id = 0){
 
 }
 
-function get_user_about($user_id = 0){
+function get_category_title($category_id = 0){
 
     $t = &get_instance();
 
-    $t->load->model("user_model");
+    $t->load->model("product_category_model");
 
-    $user_about = $t->user_model->get(
+    $category = $t->product_category_model->get(
         array(
-            "id"    => $user_id
+            "id"    => $category_id
         )
     );
 
-    if($user_about)
-        return $user_about->about;
+    if($category)
+        return $category->title_tr;
     else
         return "<b style='color:red'>Tanımlı Değil</b>";
 
 }
 
-function get_user_photo($user_id = 0){
+function get_brand_name($brandID = 0){
 
     $t = &get_instance();
 
-    $t->load->model("user_model");
+    $t->load->model("brands_model");
 
-    $user_id = $t->user_model->get(
+    $brand = $t->brands_model->get(
         array(
-            "id"    => $user_id
+            "id"    => $brandID
         )
     );
 
-    if($user_id)
-        return $user_id->img_url;
+    if($brand)
+        return $brand->title;
     else
-        return "<b style='color:red'>Tanımlı Değil</b>";
+        return "Tanımlı Olmayan Marka";
 
 }

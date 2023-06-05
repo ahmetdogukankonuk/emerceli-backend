@@ -5,7 +5,7 @@
             <ul class="navbar-nav navbar-align">
                 <li class="nav-item dropdown">
 					<a href="#" data-bs-toggle="dropdown">
-                        <img src="<?php echo base_url("assets"); ?>/img/profile.jpeg" width="30px" class="profile-img">
+                        <img src="<?php echo base_url("assets"); ?>/img/profile.webp" width="30px" class="profile-img">
                     </a>
                     <div class="dropdown-menu shadow-lg rounded-4">
                         <a class="dropdown-item" href="<?php echo base_url("profile"); ?>">

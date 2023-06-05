@@ -1,45 +1,96 @@
-            <section class="contact section bd-container mt-4" id="contact">
-                <div class="contact__container bd-grid">
-                    <div class="contact__data">
-                        <h2 class="section-title contact__initial">İletişime Geç</h2>
-                        <p class="contact__description" style="text-align: center !important;">
-                            Web sitemizi ziyaret ettiğiniz için teşekkür ederiz. Herhangi bir sorunuz, yorumunuz veya geri bildiriminiz varsa, lütfen bizimle iletişime geçmekten çekinmeyin.
-                        </p>
+            <!--==================== CONTACT ====================-->
+            <section class="contact section" id="contact">
+                <div class="contact__container container grid">
+                    <div class="contact__images">
+                        <div class="contact__orbe"></div>
+    
+                        <div class="contact__img">
+                            <img src="assets/img/contact.webp" alt="">
+                        </div>
                     </div>
-                </div>
-            </section>
 
-            <section class="mb-3" id="form">
-                <div class="container">
-                    <div class="col-lg-12 px-lg-5">
-                        <div class="pb-6 mx-auto" style="max-width: 720px;">
-                            <form class="needs-validation row" novalidate>
-                                <div class="col-sm-6 mb-3 pb-1">
-                                    <label class="form-label" for="cont-fn">İsim Soyisim<sup class="text-danger ms-1">*</sup></label>
-                                    <input class="form-control" type="text" id="cont-fn" placeholder="İsim Soyisim" required>
-                                    <div class="invalid-feedback">Please enter your full name!</div>
+                    <div class="contact__content">
+                        <div class="contact__data">
+                            <h2 class="section__title">
+                                <?php echo $this->lang->line('contact-us'); ?>
+                            </h2>
+                            <p class="contact__description">
+                                <?php echo $this->lang->line('contact-text'); ?>
+                            </p>
+                        </div>
+
+                        <div class="contact__card">
+                            <div class="contact__card-box">
+                                <div class="contact__card-info">
+                                    <i class='bx bxs-phone-call'></i>
+                                    
+                                    <div>
+                                        <h3 class="contact__card-title">
+                                            <?php echo $this->lang->line('call'); ?>
+                                        </h3>
+                                        <p class="contact__card-description">
+                                            +905388291825
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="col-sm-6 mb-3 pb-1">
-                                    <label class="form-label" for="cont-email">Email Adresi<sup class="text-danger ms-1">*</sup></label>
-                                    <input class="form-control" type="email" id="cont-email" placeholder="örnek@gmail.com" required>
-                                    <div class="invalid-feedback">Please enter a valid email address!</div>
+                                <a href="tel:+905388291825" class="button contact__card-button">
+                                    <?php echo $this->lang->line('call-us'); ?>
+                                </a>
+                            </div>
+
+                            <div class="contact__card-box">
+                                <div class="contact__card-info">
+                                    <i class='bx bxs-message-rounded-dots' ></i>
+                                    
+                                    <div>
+                                        <h3 class="contact__card-title">
+                                            <?php echo $this->lang->line('chat'); ?>
+                                        </h3>
+                                        <p class="contact__card-description">
+                                            +905388291825
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="col-sm-6 mb-3 pb-1">
-                                    <label class="form-label" for="cont-phone">Telefon Numarası<sup class="text-danger ms-1">*</sup></label>
-                                    <input class="form-control bg-image-0" type="text" id="cont-phone" data-format="custom" data-delimiter="-" data-blocks="1 3 3 2 2" placeholder="0-000-000-00-00">
+                                <a href="sms:+905388291825" class="button contact__card-button">
+                                    <?php echo $this->lang->line('chat-now'); ?>
+                                </a>
+                            </div>
+
+                            <div class="contact__card-box">
+                                <div class="contact__card-info">
+                                    <i class='bx bxl-whatsapp' ></i>
+                                    
+                                    <div>
+                                        <h3 class="contact__card-title">
+                                            Whatsapp
+                                        </h3>
+                                        <p class="contact__card-description">
+                                            +905388291825
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="col-sm-6 mb-3 pb-1">
-                                    <label class="form-label" for="cont-subject">Konu</label>
-                                    <input class="form-control bg-image-0" type="text" id="cont-subject" placeholder="Mesajınızın konusunu yazınız...">
+                                <a href="https://wa.me/+905388291825" class="button contact__card-button">
+                                    <?php echo $this->lang->line('chat-now'); ?>
+                                </a>
+                            </div>
+
+                            <div class="contact__card-box">
+                                <div class="contact__card-info">
+                                    <i class='bx bxs-envelope'></i>
+                                    
+                                    <div>
+                                        <h3 class="contact__card-title">
+                                            <?php echo $this->lang->line('mail'); ?>
+                                        </h3>
+                                        <p class="contact__card-description">
+                                            info@emerceli.com
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="col-12 mb-3 pb-1">
-                                    <label class="form-label" for="cont-message">Mesaj<sup class="text-danger ms-1">*</sup></label>
-                                    <textarea class="form-control" id="cont-message" rows="4" placeholder="Lütfen mesajınızı yazınız..." required></textarea>
-                                </div>
-                                <div class="col-12 pt-2 text-center">
-                                    <button class="more-button" style="margin-top: 0rem !important;" type="submit">İletişime Geç</button>
-                                </div>
-                            </form>
+                                <a href="mailto:info@emerceli.com" class="button contact__card-button">
+                                    <?php echo $this->lang->line('mail-now'); ?>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

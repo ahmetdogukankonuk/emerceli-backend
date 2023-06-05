@@ -9,6 +9,7 @@ $lang['spanish'] = "Spanish";
 $lang['german'] = "German";
 $lang['persian'] = "Persian";
 $lang['portuguese'] = "Portuguese";
+$lang['chinese'] = "Chinese";
 
 $lang['dashboard'] = "Dashboard";
 $lang['products'] = "Products";
@@ -204,5 +205,9 @@ $lang['password-could-not-changed-text'] = "A problem occurred during changing t
 $lang['on-catalog'] = "On Catalog";
 $lang['product-price'] = "Product Price";
 $lang['special-products'] = "Special Products";
+
+$lang['references'] = "References";
+$lang['all-references'] = "All References";
+$lang['new-reference'] = "New References";
 
 ?>

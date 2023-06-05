@@ -1,36 +1,29 @@
-<?php $social = get_social(); ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="tr">
     <head>
-        <?php $this->load->view("includes/head"); ?>
+        <?php $this->load->view("includes/headx"); ?>
     </head>
     
     <body>
-        <a href="https://maps.google.com/?q=37.917850,32.524731" target="_blank" class="location" id="scroll-top">
-            <i class='bi bi-geo-alt location-icon'></i>
-        </a>
-
-        <a href="tel:<?php echo $social->phone; ?>" class="call" id="scroll-top">
-            <i class='bi bi-telephone call-icon'></i>
-        </a>
-
-        <a href="https://wa.me/<?php echo $social->whatsapp; ?>" target="_blank" class="whatsapp" id="scroll-top">
-            <i class='bi bi-whatsapp whatsapp-icon'></i>
-        </a>
-
-        <header class="l-header" id="header">
-            <?php $this->load->view("includes/header"); ?>
+        <header class="header" id="header">
+            <?php $this->load->view("includes/headerx"); ?>
         </header>
 
-        <main class="l-main">
+        <main class="main">
                 
             <?php $this->load->view("{$viewFolder}/content"); ?>
 
         </main>
 
         <?php $this->load->view("includes/footer"); ?>
+
+        <!-- Scroll Up -->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class='bx bx-chevrons-up'></i>
+        </a>
             
         <?php $this->load->view("includes/include_script"); ?>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
     </body>
     

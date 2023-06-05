@@ -131,6 +131,34 @@
                             </div>
                         </li>
                         <?php } ?>
+
+                        <?php if(isAllowedViewModule("references")) { ?>
+                        <li>
+                            <button class="btn btn-toggle sidebar-link align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#references-collapse" aria-expanded="false">
+                                <i class="bi bi-building-check sidebar-icon"></i>
+                                <?php echo $this->lang->line('references'); ?>
+                            </button>
+                            <div class="collapse" id="references-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pt-2 small">
+                                    <li>
+                                        <?php if(isAllowedViewModule("references")) { ?>
+                                            <a href="<?php echo base_url("references"); ?>" class="sidebar-sublink rounded">
+                                                <i class="bi bi-building-check sub-sidebar-icon"></i>
+                                                <?php echo $this->lang->line('all-references'); ?>
+                                            </a>
+                                        <?php } ?>
+                                        <?php if(isAllowedViewModule("references")) { ?>
+                                            <a href="<?php echo base_url("references/new"); ?>" class="sidebar-sublink rounded">
+                                                <i class="bi bi-building-add sub-sidebar-icon"></i>
+                                                <?php echo $this->lang->line('new-reference'); ?>
+                                            </a>
+                                        <?php } ?>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <?php } ?>
+                        
                         
                         <?php if(isAllowedViewModule("users")) { ?>
                         <li>
@@ -176,31 +204,6 @@
                             </div>
                         </li>
                         <?php } ?>
-                        
-                        <li>
-                            <button class="btn btn-toggle sidebar-link align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#gallery-collapse" aria-expanded="false">
-                                <i class="bi bi-images sidebar-icon"></i>
-                                <?php echo $this->lang->line('gallery'); ?>
-                            </button>
-                            <div class="collapse" id="gallery-collapse">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal pt-2 small">
-                                    <li>
-                                        <?php if(isAllowedViewModule("videos")) { ?>
-                                            <a href="<?php echo base_url("videos"); ?>" class="sidebar-sublink rounded">
-                                                <i class="bi bi-play-btn sub-sidebar-icon"></i>
-                                                <?php echo $this->lang->line('videos'); ?>
-                                            </a>
-                                        <?php } ?>
-                                        <?php if(isAllowedViewModule("sliders")) { ?>
-                                            <a href="<?php echo base_url("sliders"); ?>" class="sidebar-sublink rounded">
-                                                <i class="bi bi-images sub-sidebar-icon"></i>
-                                                <?php echo $this->lang->line('sliders'); ?>
-                                            </a>
-                                        <?php } ?>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
                         
                         <?php if(isAllowedViewModule("settings")) { ?>
                             <a href="<?php echo base_url("settings"); ?>" class="sidebar-link mt-4 ms-01">

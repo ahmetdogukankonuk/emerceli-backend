@@ -1,49 +1,135 @@
         <?php $social = get_social(); ?>
-        <?php $address = get_address(); ?>
-
-        <footer class="footer section bd-container">
-            <div class="footer-container bd-grid">
-                <div class="footer-content">
-                    <a href="<?php echo base_url(); ?>" class="footer-logo">
-                        <img src="<?php echo base_url("assets"); ?>/img/logo.webp" style="height: 7rem;" alt="">
+        <!-- Footer -->
+        <footer class="footer section">
+            <div class="footer__container container grid">
+                <div>
+                    <a href="<?php echo base_url(); ?>" class="footer__logo">
+                        <img src="<?php echo base_url(); ?>/assets/img/logo.webp" alt="" style="height: 10rem;">
                     </a>
+                </div>
+
+                <div class="footer__content">
                     <div>
-                        <a href="<?php echo $social->facebook; ?>" target="_blank" class="footer-social"><i class='bi bi-facebook'></i></a>
-                        <a href="<?php echo $social->instagram; ?>" target="_blank" class="footer-social"><i class='bi bi-instagram'></i></a>
-                        <a href="https://wa.me/<?php echo $social->whatsapp; ?>" target="_blank" class="footer-social"><i class='bi bi-whatsapp'></i></a>
+                        <ul class="footer__links">
+                            <h3 class="footer__title">
+                                <?php echo $this->lang->line('pages'); ?>
+                            </h3>
+                            <li>
+                                <a href="<?php echo base_url(); ?>" class="footer__link">
+                                    <?php echo $this->lang->line('home'); ?>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url("products"); ?>" class="footer__link">
+                                    <?php echo $this->lang->line('products'); ?>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url("contact"); ?>" class="footer__link">
+                                    <?php echo $this->lang->line('contact-us'); ?>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                </div>
 
-                <div class="footer-content">
-                    <h3 class="footer-title">Sayfalar</h3>
-                    <ul>
-                        <li><a href="<?php echo base_url(); ?>" class="footer-link">Anasayfa</a></li>
-                        <li><a href="<?php echo base_url("urunler"); ?>" class="footer-link">Ürünlerimiz</a></li>
-                        <li><a href="<?php echo base_url("hakkimizda"); ?>" class="footer-link">Hakkımızda</a></li>
-                        <li><a href="<?php echo base_url("iletisim"); ?>" class="footer-link">İletişim</a></li>
-                    </ul>
-                </div>
+                    <div>
+                        <ul class="footer__links">
+                            <h3 class="footer__title">
+                                <?php echo $this->lang->line('company'); ?>
+                            </h3>
+                            <li>
+                                <a href="<?php echo base_url("about"); ?>" class="footer__link">
+                                    <?php echo $this->lang->line('about-us'); ?>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url("about"); ?>" class="footer__link">
+                                    <?php echo $this->lang->line('our-mission'); ?>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url("about"); ?>" class="footer__link">
+                                    <?php echo $this->lang->line('our-vision'); ?>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <ul class="footer__links">
+                            <h3 class="footer__title">
+                                <?php echo $this->lang->line('legal'); ?>
+                            </h3>
+                            <li>
+                                <a href="#" class="footer__link"> <?php echo $this->lang->line('copyright-rights'); ?> </a>
+                            </li>
+                            <li>
+                                <a href="#" class="footer__link"> <?php echo $this->lang->line('terms-of-use'); ?> </a>
+                            </li>
+                            <li>
+                                <a href="#" class="footer__link"> <?php echo $this->lang->line('advertising-policy'); ?></a>
+                            </li>
+                        </ul>
+                    </div>
 
-                <div class="footer-content">
-                    <h3 class="footer-title">İletişim</h3>
-                    <ul>
-                        <li><a href="tel:<?php echo $social->phone; ?>" class="footer-link">Bizi Arayın</a></li>
-                        <li><a href="sms:<?php echo $social->phone; ?>" class="footer-link">Bize Mesaj Atın</a></li>
-                        <li><a href="https://wa.me/<?php echo $social->whatsapp; ?>" class="footer-link">Bize WhatsApp'tan Ulaşın</a></li>
-                        <li><a href="<?php echo $address->location; ?>" target="_blank" class="footer-link">Konumu Görün</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-content">
-                    <h3 class="footer-title">Adres</h3>
-                    <ul>
-                        <li><a href="<?php echo $address->location; ?>" target="_blank" class="footer-link">Fevziçakmak, 10501. Sk.</a></li>
-                        <li><a href="<?php echo $address->location; ?>" target="_blank" class="footer-link">No:2-32 Horozluhan Osb.</a></li>
-                        <li><a href="<?php echo $address->location; ?>" target="_blank" class="footer-link">Fetih Mahallesi</a></li>
-                        <li><a href="<?php echo $address->location; ?>" target="_blank" class="footer-link">Karatay/Konya</a></li>
-                    </ul>
+                    <div>
+                        <ul class="footer__social">
+                            <h3 class="footer__title">
+                                <?php echo $this->lang->line('follow-us'); ?>
+                            </h3> <br>
+                            <?php if(isset($social->facebook)){ ?>
+                                <a href="<?php echo $social->facebook; ?>" target="_blank" class="footer__social-link">
+                                    <i class='bx bxl-facebook-circle' ></i>
+                                </a>
+                            <?php } ?>
+                            <?php if(isset($social->instagram)){ ?>
+                                <a href="<?php echo $social->instagram; ?>" target="_blank" class="footer__social-link">
+                                    <i class='bx bxl-instagram-alt' ></i>
+                                </a>
+                            <?php } ?>
+                            <?php if(isset($social->twitter)){ ?>
+                                <a href="<?php echo $social->twitter; ?>" target="_blank" class="footer__social-link">
+                                    <i class='bx bxl-twitter' ></i>
+                                </a>
+                            <?php } ?>
+                            <?php if(isset($social->linkedin)){ ?>
+                                <a href="<?php echo $social->linkedin; ?>" target="_blank" class="footer__social-link">
+                                    <i class='bx bxl-linkedin' ></i>
+                                </a>
+                            <?php } ?>
+                            <?php if(isset($social->youtube)){ ?>
+                                <a href="<?php echo $social->youtube; ?>" target="_blank" class="footer__social-link">
+                                    <i class='bx bxl-youtube' ></i>
+                                </a>
+                            <?php } ?>
+                            <?php if(isset($social->whatsapp)){ ?>
+                                <a href="<?php echo $social->whatsapp; ?>" target="_blank" class="footer__social-link">
+                                    <i class='bx bxl-whatsapp' ></i>
+                                </a>
+                            <?php } ?>
+                            <?php if(isset($social->pinterest)){ ?>
+                                <a href="<?php echo $social->pinterest; ?>" target="_blank" class="footer__social-link">
+                                    <i class='bx bxl-pinterest' ></i>
+                                </a>
+                            <?php } ?>
+                            <?php if(isset($social->tiktok)){ ?>
+                                <a href="<?php echo $social->tiktok; ?>" target="_blank" class="footer__social-link">
+                                    <i class='bx bxl-tiktok' ></i>
+                                </a>
+                            <?php } ?>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <p class="footer-copy"> <a href="https://ahmetdogukankonuk.com/" target="_blank" class="footer-link"> &#169; 2023 Created by @ahmetdogukankonuk </a></p>
+            <div class="footer__info container">
+                <span class="footer__copy">
+                    &#169; ahmetdogukankonuk. <?php echo $this->lang->line('copyright'); ?>
+                </span>
+
+                <div class="footer__privacy">
+                    <a href="#"> <?php echo $this->lang->line('cookie-policy'); ?> </a>
+                    <a href="#"> <?php echo $this->lang->line('privacy-policy'); ?> </a>
+                </div>
+            </div>
         </footer>

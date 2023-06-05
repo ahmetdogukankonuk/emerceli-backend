@@ -1,14 +1,19 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends MY_Controller {
 
+    public function switchLanguage($dil){
+        $this->session->set_userdata('lang',$dil);
+        redirect($_SERVER['HTTP_REFERER']);
+    }
+    
 	public function index(){
         
         $viewData = new stdClass();
         $viewData->viewFolder = "home_v";
         $this->load->model("product_model");
-        $this->load->model("sliders_model");
+        $this->load->model("references_model");
         $this->load->model("about_model");
         $this->load->model("mission_model");
 
@@ -16,13 +21,14 @@ class Home extends CI_Controller {
 
         $viewData->mission = $this->mission_model->get();
 
-        $viewData->sliders = $this->sliders_model->get_all(
+        $viewData->products = $this->product_model->get_all(
             array(
                 "isActive"  => 1,
+                "isOnMain"  => 1,
             ), "rank ASC"
         );
 
-        $viewData->products = $this->product_model->get_all(
+        $viewData->references = $this->references_model->get_all(
             array(
                 "isActive"  => 1,
                 "isOnMain"  => 1,
@@ -38,63 +44,114 @@ class Home extends CI_Controller {
         $viewData = new stdClass();
         $viewData->viewFolder = "product_list_v";
 
+        $this->load->helper("tools");
         $this->load->model("product_model");
+        $this->load->model("product_category_model");
+        $this->load->model("product_image_model");
+        $this->load->model("brands_model");
 
         $viewData->products = $this->product_model->get_all(
             array(
                 "isActive"  => 1
             ), "rank ASC"
         );
-
-        $this->load->view($viewData->viewFolder, $viewData);
-
-    }
-
-    public function special_product_list(){
-
-        $viewData = new stdClass();
-        $viewData->viewFolder = "special_product_list_v";
-
-        $this->load->model("special_product_model");
-
-        $viewData->special_products = $this->special_product_model->get_all(
+        
+        $viewData->product_categories = $this->product_category_model->get_all(
             array(
                 "isActive"  => 1
             ), "rank ASC"
         );
 
+        $viewData->brands = $this->brands_model->get_all(
+            array(
+                "isActive"  => 1,
+            ), "rank ASC"
+        );
+        
         $this->load->view($viewData->viewFolder, $viewData);
 
     }
 
-    public function special_product_detail($id = ""){
+    public function product_list_by_category($id){
 
-        $viewData = new stdClass();
-        $viewData->viewFolder = "special_product_v";
+        if($id != ""){
+            
+            $viewData = new stdClass();
+            $viewData->viewFolder = "product_list_v";
 
-        $this->load->model("special_product_model");
-        $this->load->model("special_product_image_model");
-        $this->load->model("social_model");
+            $this->load->helper("tools");
+            $this->load->model("product_model");
+            $this->load->model("product_category_model");
+            $this->load->model("product_image_model");
+            $this->load->model("brands_model");
 
-        $viewData->special_product = $this->special_product_model->get(
-            array(
-                "isActive"  => 1,
-                "id"        => $id
-            )
-        );
+            $viewData->products = $this->product_model->get_all(
+                array(
+                    "isActive"          => 1,
+                    "categoryID"       => $id,
+                ), "id ASC"
+            );
 
-        $viewData->special_product_images = $this->special_product_image_model->get_all(
-            array(
-                "isActive"      => 1,
-                "isCover"       => 0,
-                "productID"     => $viewData->special_product->id,
-            ), "rank ASC"
-        );
+    
+            $viewData->product_categories = $this->product_category_model->get_all(
+                array(
+                    "isActive"  => 1
+                ), "rank ASC"
+            );
 
-        $viewData->social = $this->social_model->get();
+            $viewData->brands = $this->brands_model->get_all(
+                array(
+                    "isActive"  => 1,
+                ), "rank ASC"
+            );
 
-        $this->load->view($viewData->viewFolder, $viewData);
+            $this->load->view($viewData->viewFolder, $viewData);
 
+        } else {
+
+        }
+        
+    }
+
+    public function product_list_by_brand($id){
+
+        if($id != ""){
+            
+            $viewData = new stdClass();
+            $viewData->viewFolder = "product_list_v";
+
+            $this->load->helper("tools");
+            $this->load->model("product_model");
+            $this->load->model("product_category_model");
+            $this->load->model("product_image_model");
+            $this->load->model("brands_model");
+
+            $viewData->products = $this->product_model->get_all(
+                array(
+                    "isActive"          => 1,
+                    "brandID"           => $id,
+                ), "id ASC"
+            );
+
+    
+            $viewData->product_categories = $this->product_category_model->get_all(
+                array(
+                    "isActive"  => 1
+                ), "rank ASC"
+            );
+
+            $viewData->brands = $this->brands_model->get_all(
+                array(
+                    "isActive"  => 1,
+                ), "rank ASC"
+            );
+
+            $this->load->view($viewData->viewFolder, $viewData);
+
+        } else {
+
+        }
+        
     }
 
     public function product_detail($id = ""){
@@ -112,12 +169,25 @@ class Home extends CI_Controller {
                 "id"        => $id
             )
         );
+
         $viewData->product_images = $this->product_image_model->get_all(
             array(
                 "isActive"      => 1,
                 "isCover"       => 0,
                 "productID"     => $viewData->product->id,
             ), "rank ASC"
+        );
+        
+        $current_product = $viewData->product;
+        $categoryID = $current_product->categoryID;
+
+        $viewData->other_products = $this->product_model->get_all(
+            array(
+                "isActive" => 1,
+                "id !=" => $current_product->id,
+                "categoryID" => $categoryID
+            ),"rand()",
+            array("start" => 0, "count" => 3)
         );
 
         $viewData->social = $this->social_model->get();
@@ -166,8 +236,15 @@ class Home extends CI_Controller {
         $viewData = new stdClass();
         $viewData->viewFolder = "about_v";
         $this->load->model("about_model");
+        $this->load->model("references_model");
 
         $viewData->about = $this->about_model->get();
+
+        $viewData->references = $this->references_model->get_all(
+            array(
+                "isActive"  => 1,
+            ), "rank ASC"
+        );
 
         $this->load->view($viewData->viewFolder, $viewData);
 

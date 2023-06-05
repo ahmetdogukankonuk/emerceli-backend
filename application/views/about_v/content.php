@@ -1,34 +1,34 @@
-            <section class="about section bd-container" id="about">
-                <div class="about-container  bd-grid">
-                    <div class="about-data">
-                        <span class="section-subtitle about-initial">Hakkımızda</span>
-                        <h2 class="section-title about-initial"> ADS Hayvan Sulukları </h2>
-                        <p class="about-description">
-                            1998 Yılında kurulmuş olan (ADS HAYVAN SULUKLARI) Hayvan Sulukları yapmaktayız.
-                            Firmamız 2.000 m2 kapalı alanda ve imalathanemizde 20 kişi çalışmaktadır. 
-                            Günlük 500 adet otomatik hayvan suluğu imalatı yapmaktayız.
-                            Suluğumuzun şamandıra sistemi CNC de işlenmektedir.
-                        </p>
+            <!--==================== VALUE ====================-->
+            <section class="value section mt-5" id="value">
+                <div class="value__container container grid">
+                    <div class="value__images">
+                        <div class="value__orbe"></div>
+    
+                        <div class="value__img">
+                            <img src="assets/img/about.webp" alt="">
+                        </div>
                     </div>
-                    
-                    <img src="<?php echo base_url("assets"); ?>/img/main1.webp" alt="" class="about-img">
+
+                    <div class="value__content">
+                        <div class="value__data">
+                            <h2 class="section__title">
+                                <?php echo $this->lang->line('about-us'); ?>
+                            </h2>
+                            <p class="value__description">
+                                <?php echo $this->lang->line('about-text'); ?>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <section class="about section bd-container" id="about">
-                <div class="about-container  bd-grid">
-                    <img src="<?php echo base_url("assets"); ?>/img/main2.webp" alt="" class="about-img">
-
-                    <div class="about-data">
-                        <span class="section-subtitle about-initial">Misyonumuz</span>
-                        <h2 class="section-title about-initial"> ADS Hayvan Sulukları </h2>
-                        <p class="about-description">
-                            1998 Yılında kurulmuş olan (ADS HAYVAN SULUKLARI) Hayvan Sulukları yapmaktayız.
-                            Firmamız 2.000 m2 kapalı alanda ve imalathanemizde 20 kişi çalışmaktadır. 
-                            Günlük 500 adet otomatik hayvan suluğu imalatı yapmaktayız.
-                            Suluğumuzun şamandıra sistemi CNC de işlenmektedir.
-                        </p>
-                    </div>
+            <!--==================== LOGOS ====================-->
+            <section class="logos section">
+                <div class="logos__container container grid">
+                    <?php foreach($references as $references) { ?>
+                        <div class="logos__img">
+                            <img src="<?php echo base_url("panel/uploads/references_v/$references->imgUrl"); ?>" alt="">
+                        </div>
+                    <?php } ?>
                 </div>
-                
             </section>

@@ -113,9 +113,6 @@ class Brands extends MY_Controller {
                 $insert = $this->brands_model->add(
                     array(
                         "title"                 => $this->input->post("title"),
-                        "title_tr"              => $this->input->post("title_tr"),
-                        "title_fr"              => $this->input->post("title_fr"),
-                        "title_es"              => $this->input->post("title_es"),
                         "imgUrl"                => $uploaded_file,
                         "rank"                  => 0,
                         "isActive"              => 1,
@@ -239,9 +236,6 @@ class Brands extends MY_Controller {
 
                     $data = array(
                         "title"                 => $this->input->post("title"),
-                        "title_tr"              => $this->input->post("title_tr"),
-                        "title_fr"              => $this->input->post("title_fr"),
-                        "title_es"              => $this->input->post("title_es"),
                         "imgUrl"                => $uploaded_file,
                         "updatedAt"             => date("Y-m-d H:i:s")
                     );
@@ -266,9 +260,6 @@ class Brands extends MY_Controller {
 
                 $data = array(
                     "title"                 => $this->input->post("title"),
-                    "title_tr"              => $this->input->post("title_tr"),
-                    "title_fr"              => $this->input->post("title_fr"),
-                    "title_es"              => $this->input->post("title_es"),
                     "updatedAt"             => date("Y-m-d H:i:s")
                 );
 
@@ -315,6 +306,28 @@ class Brands extends MY_Controller {
 
         }
 
+    }
+
+    public function isOnMainSetter($id){
+
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
+        if(!isAllowedUpdateModule()){
+            die();
+        }
+
+        if($id){
+
+            $isOnMain = ($this->input->post("data") === "true") ? 1 : 0;
+
+            $this->brands_model->update(
+                array(
+                    "id"    => $id
+                ),
+                array(
+                    "isOnMain"  => $isOnMain
+                )
+            );
+        }
     }
 
     /* Activity Setter */
